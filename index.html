@@ -1,0 +1,632 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Saden <3 </title>
+
+<link href="https://fonts.googleapis.com/css2?family=VT323&family=Quicksand:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+
+<style>
+:root {
+    --navy: #101c35;
+    --blue: #276b9e;
+    --cyan: #77d9f4;
+    --ice: #d9f5ff;
+    --silver: #c5d5e1;
+    --white: #f6fbff;
+    --text: #243f5c;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--navy);
+    background-image:
+        linear-gradient(#101c3566, #101c3588),
+        url("spiral-bg.png");
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    font-family: 'Quicksand', sans-serif;
+    color: var(--text);
+    min-height: 100vh;
+    padding: 25px 15px;
+}
+
+/* MAIN WEBSITE */
+
+.website {
+    max-width: 1100px;
+    margin: auto;
+    border: 2px solid #9ee9ff;
+    background: #d9efff;
+    box-shadow: 0 0 35px #70d7ff55;
+}
+
+/* TOP BANNER */
+
+.header {
+    height: 185px;
+    position: relative;
+    overflow: hidden;
+    background:
+        linear-gradient(110deg, #c8efff, #4c9bc9, #152d56);
+    border-bottom: 3px solid white;
+}
+
+.header::before {
+    content: "✧ ｡ﾟ☆: *.☽ .* :☆ﾟ.";
+    position: absolute;
+    font-size: 65px;
+    color: #ffffff66;
+    top: 20px;
+    left: 25px;
+    letter-spacing: 8px;
+}
+
+.header::after {
+    content: "꩜";
+    position: absolute;
+    font-size: 190px;
+    right: 60px;
+    top: -50px;
+    color: #d6f5ff77;
+    animation: spin 25s linear infinite;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+.header-content {
+    position: absolute;
+    z-index: 2;
+    bottom: 25px;
+    left: 35px;
+}
+
+.header h1 {
+    font-family: 'Playfair Display', serif;
+    font-weight: 400;
+    font-style: italic;
+    font-size: 58px;
+    color: white;
+    text-shadow: 3px 3px #24547c;
+}
+
+.header p {
+    font-family: 'VT323', monospace;
+    color: #e7f8ff;
+    font-size: 19px;
+    letter-spacing: 2px;
+}
+
+/* NAVIGATION */
+
+.navigation {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 9px;
+    padding: 13px;
+    background: #b4e7fb;
+    border-bottom: 2px solid white;
+}
+
+.navigation a {
+    text-decoration: none;
+    background: linear-gradient(#8cddfa, #3299d3);
+    color: white;
+    padding: 10px 21px;
+    border-radius: 7px;
+    border: 2px solid white;
+    outline: 1px solid #438ab8;
+    font-family: 'VT323', monospace;
+    font-size: 18px;
+    letter-spacing: 1px;
+    box-shadow: 0 3px 5px #244b6a44;
+    transition: .2s;
+}
+
+.navigation a:hover {
+    background: #183c69;
+    transform: translateY(-3px);
+}
+
+/* CONTENT GRID */
+
+.content {
+    display: grid;
+    grid-template-columns: 210px 1fr 210px;
+    gap: 13px;
+    padding: 15px;
+    background-color: #d7f0ff;
+    background-image:
+        linear-gradient(#ffffff55 1px, transparent 1px),
+        linear-gradient(90deg, #ffffff55 1px, transparent 1px);
+    background-size: 18px 18px;
+    align-items: start;
+}
+
+/* WINDOWS */
+
+.window {
+    background: #f7fcff;
+    border: 2px solid #73bde5;
+    box-shadow: 3px 4px 0 #91c7e4;
+    margin-bottom: 13px;
+}
+
+.window-title {
+    background: linear-gradient(90deg, #174e80, #63bde9);
+    color: white;
+    padding: 9px;
+    font-family: 'VT323', monospace;
+    font-size: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.window-buttons {
+    letter-spacing: 3px;
+    font-family: Arial, sans-serif;
+    font-size: 12px;
+}
+
+.window-body {
+    padding: 13px;
+    font-size: 11px;
+    line-height: 1.9;
+}
+
+.window-body h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 19px;
+    color: #265b87;
+    margin-bottom: 8px;
+}
+
+/* PROFILE */
+
+.profile-pic {
+    width: 100%;
+    height: 145px;
+    object-fit: cover;
+    border: 3px solid #8bcff0;
+    margin-bottom: 10px;
+}
+
+.profile-text {
+    color: #42627c;
+}
+
+/* MAIN WELCOME */
+
+.welcome {
+    text-align: center;
+}
+
+.welcome .window-body {
+    padding: 22px;
+}
+
+.welcome h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 32px;
+    font-weight: 400;
+    color: #24527a;
+    margin-bottom: 10px;
+}
+
+.welcome .intro {
+    font-size: 12px;
+    line-height: 2.2;
+    color: #47657e;
+    text-align: left;
+}
+
+.divider {
+    color: #5a9ec9;
+    letter-spacing: 5px;
+    margin: 15px 0;
+}
+
+/* BOOK DISPLAY */
+
+.book-image {
+    display: block;
+    width: 125px;
+    height: 185px;
+    object-fit: cover;
+    margin: 10px auto;
+    border: 4px solid white;
+    box-shadow: 3px 4px 10px #4b759966;
+    transform: rotate(2deg);
+    transition: .3s;
+}
+
+.book-image:hover {
+    transform: rotate(0deg) scale(1.05);
+}
+
+.book-title {
+    text-align: center;
+    font-family: 'Playfair Display', serif;
+    font-size: 20px;
+    color: #244f77;
+}
+
+.book-author {
+    text-align: center;
+    font-size: 10px;
+    color: #7892a8;
+}
+
+/* LINKS */
+
+.link {
+    display: block;
+    padding: 7px;
+    background: #e3f5ff;
+    color: #30678f;
+    text-decoration: none;
+    border-bottom: 1px dashed #a5d5ee;
+    font-size: 11px;
+    transition: .2s;
+}
+
+.link:hover {
+    background: #c5eaff;
+    padding-left: 12px;
+}
+
+/* MINI DECORATIONS */
+
+.sticker {
+    text-align: center;
+    color: #4397c6;
+    font-size: 23px;
+    margin: 8px;
+}
+
+.badge {
+    display: inline-block;
+    background: #d0f0ff;
+    border: 1px solid #80bfe0;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 9px;
+    margin: 3px;
+}
+
+/* FOOTER */
+
+footer {
+    background: #153b60;
+    color: #c7eaff;
+    text-align: center;
+    padding: 18px;
+    font-family: 'VT323', monospace;
+    font-size: 19px;
+    letter-spacing: 2px;
+    border-top: 3px solid white;
+}
+
+footer span {
+    color: #82dfff;
+}
+
+/* RESPONSIVE */
+
+@media(max-width: 750px) {
+    .content {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .middle-column {
+        grid-column: 1 / -1;
+        grid-row: 1;
+    }
+
+    .header h1 {
+        font-size: 42px;
+    }
+
+    .header::after {
+        right: -35px;
+    }
+}
+
+@media(max-width: 450px) {
+    .content {
+        grid-template-columns: 1fr;
+    }
+
+    .middle-column {
+        grid-column: auto;
+    }
+
+    .header {
+        height: 150px;
+    }
+
+    .header h1 {
+        font-size: 35px;
+    }
+
+    .navigation a {
+        padding: 8px 12px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="website">
+
+    <!-- HEADER -->
+
+    <header class="header">
+        <div class="header-content">
+            <h1>For Saden &lt;3</h1>
+<p>A LITTLE UNIVERSE MADE JUST FOR YOU . . .</p>
+        </div>
+    </header>
+
+    <!-- NAVIGATION -->
+
+    <nav class="navigation">
+        <a href="#home">HOME</a>
+        <a href="#books">BOOKSHELF</a>
+        <a href="#featured">FEATURED</a>
+        <a href="#reviews">REVIEWS</a>
+        <a href="#about">ABOUT</a>
+    </nav>
+
+    <!-- MAIN CONTENT -->
+
+    <main class="content" id="home">
+
+        <!-- LEFT COLUMN -->
+
+        <aside>
+
+            <div class="window">
+                <div class="window-title">
+                    PROFILE
+                    <span class="window-buttons">○ ○ ○</span>
+                </div>
+
+                <div class="window-body">
+                    <img class="profile-pic"
+                    src="https://placehold.co/250x200/9ddfff/204b78?text=BOOK+LOVER"
+                    alt="Profile picture">
+
+                    <h3>hello, reader! ♡</h3>
+
+                    <p class="profile-text">
+                    Welcome to my little corner of the internet!
+
+                    A place for fictional worlds,
+                    unforgettable characters,
+                    late-night reading and
+                    way too many books.
+                    </p>
+
+                    <div class="sticker">꩜ ✧ ⋆</div>
+                </div>
+            </div>
+
+            <div class="window">
+                <div class="window-title">
+                    QUICK LINKS
+                </div>
+
+                <div class="window-body">
+                    <a class="link" href="#featured">↳ Current read</a>
+                    <a class="link" href="#books">↳ My bookshelf</a>
+                    <a class="link" href="#reviews">↳ Book reviews</a>
+                    <a class="link" href="#about">↳ About this site</a>
+                </div>
+            </div>
+
+            <div class="window">
+                <div class="window-title">
+                    CURRENT MOOD
+                </div>
+
+                <div class="window-body">
+                    <p>☁ Somewhere between reality and fiction.</p>
+                    <div class="divider">✧ ⋆ ✧</div>
+                    <span class="badge">DAYDREAMING</span>
+                    <span class="badge">READING</span>
+                </div>
+            </div>
+
+        </aside>
+
+        <!-- CENTER COLUMN -->
+
+        <section class="middle-column">
+
+            <div class="window welcome">
+                <div class="window-title">
+                    WELCOME.EXE
+                    <span class="window-buttons">— □ ×</span>
+                </div>
+
+                <div class="window-body">
+
+                    <h2>Welcome, book lover!</h2>
+
+                    <p class="intro">
+                    You've stumbled into a little universe
+                    dedicated to books, stories and fictional
+                    people who have permanently taken over
+                    our brains.
+
+                    <br><br>
+
+                    This is where all the favourite reads,
+                    thoughts, ratings and little book-related
+                    discoveries live.
+
+                    <br><br>
+
+                    So grab a cup of something nice,
+                    get comfortable and explore!
+                    </p>
+
+                    <div class="divider">
+                    ───── ✧ ─────
+                    </div>
+
+                    <p>Currently exploring: <b>Shatter Me</b></p>
+
+                    <p style="font-size:22px; margin-top:10px;">
+                    ☆彡 ｡ﾟ･
+                    </p>
+
+                </div>
+            </div>
+
+            <div class="window" id="featured">
+
+                <div class="window-title">
+                    ★ FEATURED BOOK
+                    <span class="window-buttons">○ ○ ○</span>
+                </div>
+
+                <div class="window-body" style="text-align:center;">
+
+                    <p style="font-size:10px; letter-spacing:3px;">
+                    THIS WEEK'S OBSESSION
+                    </p>
+
+                    <img class="book-image"
+                    src="https://covers.openlibrary.org/b/isbn/9780062085504-L.jpg"
+                    alt="Shatter Me book cover">
+
+                    <h3 class="book-title">Shatter Me</h3>
+
+                    <p class="book-author">
+                    by Tahereh Mafi
+                    </p>
+
+                    <div class="divider">✧ ✦ ✧</div>
+
+                    <p>
+                    A dangerous touch. A broken world.
+                    A girl discovering her own power.
+                    </p>
+
+                    <br>
+
+                    <a class="link" href="#reviews">
+                    READ MY BOOK NOTES →
+                    </a>
+
+                </div>
+            </div>
+
+            <div class="window" id="reviews">
+
+                <div class="window-title">
+                    LITTLE READING DIARY
+                </div>
+
+                <div class="window-body">
+                    <h3>Dear diary...</h3>
+
+                    <p>
+                    A place for thoughts, favourite
+                    characters, memorable moments
+                    and all the feelings a good book
+                    leaves behind.
+                    </p>
+
+                    <div class="divider">✧ ⋆ ✧</div>
+
+                    <p><i>"Every book is a new universe."</i></p>
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- RIGHT COLUMN -->
+
+        <aside>
+
+            <div class="window">
+                <div class="window-title">
+                    THE BOOKSHELF
+                </div>
+
+                <div class="window-body">
+                    <h3>Currently reading</h3>
+
+                    <p>♡ Shatter Me</p>
+
+                    <div class="divider">✧</div>
+
+                    <h3>Reading status</h3>
+
+                    <p>Lost in a fictional universe...</p>
+
+                    <span class="badge">READING</span>
+                </div>
+            </div>
+
+            <div class="window">
+                <div class="window-title">
+                    LITTLE THINGS
+                </div>
+
+                <div class="window-body">
+                    <h3>Bookish favourites</h3>
+
+                    <p>✧ Annotated pages</p>
+                    <p>✧ Plot twists</p>
+                    <p>✧ Beautiful covers</p>
+                    <p>✧ Fictional worlds</p>
+                    <p>✧ Late-night reading</p>
+                </div>
+            </div>
+
+            <div class="window">
+                <div class="window-title">
+                    SITE DECOR
+                </div>
+
+                <div class="window-body">
+                    <div class="sticker">꩜</div>
+                    <p style="text-align:center;">
+                    made of stars, stories & stardust.
+                    </p>
+                    <div class="sticker">✧ ☆ ✧</div>
+                </div>
+            </div>
+
+        </aside>
+
+    </main>
+
+    <footer>
+        ✧ PAPER MOONS ✧
+        <br>
+        <span>EST. IN A UNIVERSE OF BOOKS ♡</span>
+    </footer>
+
+</div>
+
+</body>
+</html>
