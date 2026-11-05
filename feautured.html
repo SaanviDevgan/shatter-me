@@ -1,0 +1,555 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Featured Characters | Saden &lt;3</title>
+
+<link href="https://fonts.googleapis.com/css2?family=VT323&family=Quicksand:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;1,500&display=swap" rel="stylesheet">
+
+<style>
+:root {
+    --navy: #101c35;
+    --blue: #276b9e;
+    --cyan: #77d9f4;
+    --ice: #d9f5ff;
+    --silver: #c5d5e1;
+    --white: #f7fcff;
+    --text: #263b55;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Quicksand', sans-serif;
+    color: var(--text);
+    background:
+        linear-gradient(rgba(226,245,255,.82), rgba(226,245,255,.82)),
+        url("spiral-bg.png");
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+/* NAVIGATION */
+
+nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    padding: 16px 12px;
+    background: rgba(16,28,53,.97);
+    border-bottom: 2px solid var(--cyan);
+    box-shadow: 0 4px 18px rgba(16,28,53,.2);
+}
+
+nav a {
+    color: var(--ice);
+    text-decoration: none;
+    font-family: 'VT323', monospace;
+    font-size: 22px;
+    letter-spacing: 1px;
+    padding: 5px 12px;
+    transition: .2s;
+}
+
+nav a:hover,
+nav a.active {
+    color: var(--cyan);
+    text-shadow: 0 0 9px var(--cyan);
+    transform: translateY(-2px);
+}
+
+/* PAGE */
+
+.container {
+    width: min(1150px, 92%);
+    margin: 35px auto;
+}
+
+.window {
+    background: rgba(247,252,255,.95);
+    border: 2px solid var(--silver);
+    border-radius: 9px;
+    box-shadow: 7px 7px 0 rgba(39,107,158,.15);
+    margin-bottom: 28px;
+    overflow: hidden;
+}
+
+.window-bar {
+    background: linear-gradient(90deg, var(--navy), var(--blue));
+    color: white;
+    padding: 9px 15px;
+    font-family: 'VT323', monospace;
+    font-size: 23px;
+    letter-spacing: 1px;
+    display: flex;
+    justify-content: space-between;
+}
+
+/* HEADER */
+
+.page-header {
+    text-align: center;
+    padding: 55px 20px 45px;
+    background:
+        radial-gradient(circle at 20% 20%, rgba(119,217,244,.4), transparent 30%),
+        radial-gradient(circle at 80% 80%, rgba(39,107,158,.2), transparent 35%),
+        var(--white);
+}
+
+.page-header h1 {
+    font-family: 'Playfair Display', serif;
+    color: var(--navy);
+    font-size: clamp(40px, 7vw, 66px);
+    margin-bottom: 8px;
+}
+
+.page-header p {
+    max-width: 650px;
+    margin: 12px auto;
+    line-height: 1.8;
+}
+
+.subtitle {
+    font-family: 'VT323', monospace;
+    color: var(--blue);
+    font-size: 25px;
+}
+
+.decor {
+    color: var(--blue);
+    font-size: 20px;
+    letter-spacing: 7px;
+    margin: 15px 0;
+}
+
+/* INTRO */
+
+.database-intro {
+    text-align: center;
+    padding: 30px 20px 10px;
+}
+
+.database-intro h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 32px;
+    color: var(--navy);
+    margin-bottom: 8px;
+}
+
+.database-intro p {
+    line-height: 1.8;
+}
+
+.character-count {
+    display: inline-block;
+    background: var(--navy);
+    color: var(--ice);
+    font-family: 'VT323', monospace;
+    font-size: 21px;
+    padding: 5px 17px;
+    margin-top: 14px;
+    border-radius: 3px;
+}
+
+/* CHARACTER CARDS */
+
+.character-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 22px;
+    padding: 25px;
+}
+
+.character-card {
+    background: #f4fbff;
+    border: 1px solid var(--silver);
+    border-radius: 8px;
+    overflow: hidden;
+    transition: .25s;
+}
+
+.character-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 9px 20px rgba(39,107,158,.17);
+}
+
+.character-image {
+    height: 330px;
+    background: linear-gradient(145deg, #d9f5ff, #b7d8ed, #edf8ff);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    border-bottom: 2px solid var(--silver);
+}
+
+.character-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    object-position: center;
+    transition: transform .35s ease;
+}
+
+.character-card:hover .character-image img {
+    transform: scale(1.04);
+}
+
+.character-details {
+    padding: 19px;
+}
+
+.character-number {
+    color: var(--blue);
+    font-family: 'VT323', monospace;
+    font-size: 20px;
+}
+
+.character-details h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 24px;
+    color: var(--navy);
+    margin: 5px 0;
+}
+
+.character-role {
+    color: #5684a6;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+}
+
+.character-details p {
+    font-size: 14px;
+    line-height: 1.8;
+}
+
+.character-fact {
+    border-top: 1px dashed var(--silver);
+    margin-top: 13px;
+    padding-top: 11px;
+}
+
+.character-fact strong {
+    color: var(--blue);
+}
+
+/* BOTTOM */
+
+.end-note {
+    text-align: center;
+    padding: 25px;
+    color: var(--blue);
+    font-family: 'VT323', monospace;
+    font-size: 23px;
+    letter-spacing: 1px;
+}
+
+footer {
+    text-align: center;
+    padding: 25px 15px;
+    color: var(--navy);
+    font-family: 'VT323', monospace;
+    font-size: 21px;
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 850px) {
+    .character-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 550px) {
+    nav {
+        gap: 4px;
+    }
+
+    nav a {
+        font-size: 19px;
+        padding: 5px 7px;
+    }
+
+    .character-grid {
+        grid-template-columns: 1fr;
+        padding: 15px;
+    }
+
+    .character-image {
+        height: 360px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- NAVIGATION -->
+
+<nav>
+    <a href="index.html">HOME</a>
+    <a href="bookshelf.html">BOOKSHELF</a>
+    <a href="collection.html">COLLECTION</a>
+    <a href="featured.html" class="active">FEATURED</a>
+    <a href="index.html#reviews">REVIEWS</a>
+    <a href="index.html#about">ABOUT</a>
+</nav>
+
+<main class="container">
+
+    <!-- HEADER -->
+
+    <section class="window">
+        <div class="window-bar">
+            <span>✧ THE CHARACTER ARCHIVES ✧</span>
+            <span>□ ×</span>
+        </div>
+
+        <div class="page-header">
+            <div class="decor">✦ ˚ . ⁺ . ✦</div>
+
+            <h1>Featured Characters</h1>
+
+            <p class="subtitle">
+                A LITTLE LOOK INTO THE SHATTER ME UNIVERSE
+            </p>
+
+            <p>
+                Every story has characters who make it unforgettable.
+                Meet five familiar faces from the Shatter Me universe
+                and explore their individual profiles.
+            </p>
+
+            <div class="decor">✦ ♡ ✦ ♡ ✦</div>
+        </div>
+    </section>
+
+    <!-- CHARACTER DATABASE -->
+
+    <section class="window">
+
+        <div class="window-bar">
+            <span>01 / CHARACTER DATABASE</span>
+            <span>✧</span>
+        </div>
+
+        <div class="database-intro">
+            <h2>Character Files</h2>
+
+            <p>
+                Five characters. Five different stories.
+                One unforgettable universe.
+            </p>
+
+            <span class="character-count">
+                05 CHARACTER FILES FOUND ♡
+            </span>
+        </div>
+
+        <div class="character-grid">
+
+            <!-- 001 JULIETTE -->
+
+            <article class="character-card">
+
+                <div class="character-image">
+                    <img
+                        src="https://i.pinimg.com/736x/c5/32/11/c53211ecd587887c85780ddf1ad93257.jpg"
+                        alt="Juliette Ferrars illustration"
+                        loading="lazy">
+                </div>
+
+                <div class="character-details">
+                    <span class="character-number">NO. 001</span>
+
+                    <h3>Juliette Ferrars</h3>
+
+                    <div class="character-role">
+                        The Protagonist
+                    </div>
+
+                    <p>
+                        A girl who has spent much of her life isolated
+                        from the world. Her journey is about discovering
+                        her own strength and deciding who she wants to be.
+                    </p>
+
+                    <p class="character-fact">
+                        <strong>Little fact:</strong>
+                        Her touch has a dangerous ability.
+                    </p>
+                </div>
+
+            </article>
+
+            <!-- 002 AARON WARNER -->
+
+            <article class="character-card">
+
+                <div class="character-image">
+                    <img
+                        src="https://i.pinimg.com/736x/9b/c0/d4/9bc0d40204ab6ae9540219e066deb883.jpg"
+                        alt="Aaron Warner illustration"
+                        loading="lazy">
+                </div>
+
+                <div class="character-details">
+                    <span class="character-number">NO. 002</span>
+
+                    <h3>Aaron Warner</h3>
+
+                    <div class="character-role">
+                        The Commander
+                    </div>
+
+                    <p>
+                        Ambitious, composed and difficult to read.
+                        Warner has a polished exterior, but there is
+                        much more to his personality than first appears.
+                    </p>
+
+                    <p class="character-fact">
+                        <strong>Little fact:</strong>
+                        He has a notable interest in fashion.
+                    </p>
+                </div>
+
+            </article>
+
+            <!-- 003 NAZEERA -->
+
+            <article class="character-card">
+
+                <div class="character-image">
+                    <img
+                        src="https://i.pinimg.com/736x/24/20/64/242064723108b96f03b8e5155c47d030.jpg"
+                        alt="Nazeera Ibrahim illustration"
+                        loading="lazy">
+                </div>
+
+                <div class="character-details">
+                    <span class="character-number">NO. 003</span>
+
+                    <h3>Nazeera Ibrahim</h3>
+
+                    <div class="character-role">
+                        The Independent One
+                    </div>
+
+                    <p>
+                        Clever, independent and often hard to figure out.
+                        Nazeera has connections to powerful families
+                        and a personality that keeps people guessing.
+                    </p>
+
+                    <p class="character-fact">
+                        <strong>Little fact:</strong>
+                        She is not someone who easily follows others.
+                    </p>
+                </div>
+
+            </article>
+
+            <!-- 004 KENJI -->
+
+            <article class="character-card">
+
+                <div class="character-image">
+                    <img
+                        src="https://i.pinimg.com/736x/b2/65/90/b265901682e1d7a13177533191179e09.jpg"
+                        alt="Kenji Kishimoto illustration"
+                        loading="lazy">
+                </div>
+
+                <div class="character-details">
+                    <span class="character-number">NO. 004</span>
+
+                    <h3>Kenji Kishimoto</h3>
+
+                    <div class="character-role">
+                        The Best Friend
+                    </div>
+
+                    <p>
+                        Witty, energetic and full of personality.
+                        Kenji brings humour to difficult situations
+                        while remaining a fiercely loyal friend.
+                    </p>
+
+                    <p class="character-fact">
+                        <strong>Little fact:</strong>
+                        His humour is a big part of his personality.
+                    </p>
+                </div>
+
+            </article>
+
+            <!-- 005 ADAM -->
+
+            <article class="character-card">
+
+                <div class="character-image">
+                    <img
+                        src="https://i.pinimg.com/736x/77/5b/98/775b98fc834ccb4e43e7a294a25c0bbc.jpg"
+                        alt="Adam Kent illustration"
+                        loading="lazy">
+                </div>
+
+                <div class="character-details">
+                    <span class="character-number">NO. 005</span>
+
+                    <h3>Adam Kent</h3>
+
+                    <div class="character-role">
+                        The Soldier
+                    </div>
+
+                    <p>
+                        A determined soldier with a complicated past.
+                        Adam's story explores loyalty, family and
+                        the difficult choices people make.
+                    </p>
+
+                    <p class="character-fact">
+                        <strong>Little fact:</strong>
+                        He is James's older brother.
+                    </p>
+                </div>
+
+            </article>
+
+        </div>
+
+        <div class="end-note">
+            ✧ END OF CHARACTER FILES ✧
+            <br>
+            THANK YOU FOR VISITING ♡
+        </div>
+
+    </section>
+
+</main>
+
+<footer>
+    ✦ made with love for Saden &lt;3 ✦
+    <br>
+    a little corner of the universe.
+</footer>
+
+</body>
+</html>
