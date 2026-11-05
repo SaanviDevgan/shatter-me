@@ -1,0 +1,941 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>For Saden <3 | Collection</title>
+
+<link href="https://fonts.googleapis.com/css2?family=VT323&family=Quicksand:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: #101b35 url("spiral-bg.png") center/cover fixed;
+    font-family: 'Quicksand', sans-serif;
+    color: #294968;
+    padding: 25px 15px;
+}
+
+.website {
+    max-width: 1100px;
+    margin: auto;
+    background: #d9efff;
+    border: 2px solid #a6e5ff;
+    box-shadow: 0 0 30px #78d9ff66;
+}
+
+/* HEADER */
+
+header {
+    position: relative;
+    overflow: hidden;
+    text-align: center;
+    padding: 40px 15px;
+    background: linear-gradient(120deg,#152d50,#438fbd,#b1e6f9);
+    color: white;
+    border-bottom: 3px solid white;
+}
+
+header h1 {
+    font: italic 48px 'Playfair Display',serif;
+    text-shadow: 2px 3px #244b70;
+}
+
+header p {
+    font: 20px 'VT323',monospace;
+    letter-spacing: 3px;
+    margin-top: 10px;
+}
+
+.decor {
+    position: absolute;
+    font-size: 120px;
+    color: #ffffff55;
+    right: 35px;
+    top: -35px;
+    animation: spin 25s linear infinite;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+/* NAVIGATION */
+
+nav {
+    background: #aee4fa;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    padding: 14px;
+    border-bottom: 2px solid white;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    font: 18px 'VT323',monospace;
+    padding: 9px 20px;
+    border-radius: 6px;
+    background: linear-gradient(#83d5f4,#368dc2);
+    border: 2px solid white;
+    outline: 1px solid #478bb7;
+    transition: .2s;
+}
+
+nav a:hover {
+    background: #183d68;
+    transform: translateY(-3px);
+}
+
+/* INTRO */
+
+.intro {
+    text-align: center;
+    padding: 45px 20px 25px;
+}
+
+.tiny {
+    font-size: 10px;
+    letter-spacing: 4px;
+    color: #5799c5;
+}
+
+.intro h2 {
+    font: italic 39px 'Playfair Display',serif;
+    margin: 12px;
+    color: #244d73;
+}
+
+.intro p {
+    font-size: 12px;
+    line-height: 2;
+    color: #58738b;
+}
+
+/* SEARCH */
+
+.search-area {
+    text-align: center;
+    padding: 15px;
+}
+
+.search-area input {
+    width: min(430px,90%);
+    padding: 13px 18px;
+    border: 2px solid #90c8e7;
+    border-radius: 20px;
+    background: #f7fcff;
+    outline: none;
+    color: #315a7c;
+    font-family: 'Quicksand',sans-serif;
+}
+
+.search-area input:focus {
+    box-shadow: 0 0 12px #78cfff;
+}
+
+/* FILTERS */
+
+.filters {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 9px;
+    padding: 15px;
+}
+
+.filters button {
+    background: #f2faff;
+    color: #386d95;
+    border: 1px solid #81b9db;
+    padding: 9px 17px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-family: 'Quicksand',sans-serif;
+    font-size: 11px;
+    transition: .2s;
+}
+
+.filters button:hover,
+.filters button.active {
+    background: #275d89;
+    color: white;
+}
+
+/* COLLECTION SECTIONS */
+
+.collection {
+    padding: 20px 30px 35px;
+}
+
+.series-heading {
+    text-align: center;
+    margin: 25px 0 8px;
+    font: italic 30px 'Playfair Display',serif;
+    color: #285779;
+}
+
+.series-subtitle {
+    text-align: center;
+    font-size: 11px;
+    color: #7796ad;
+    margin-bottom: 25px;
+    letter-spacing: 1px;
+}
+
+.books {
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    gap: 17px;
+}
+
+/* BOOK CARDS */
+
+.book-card {
+    background: #f7fcff;
+    border: 2px solid #92cbe9;
+    box-shadow: 4px 4px #a5d1e8;
+    padding: 13px;
+    text-align: center;
+    transition: .3s;
+    cursor: pointer;
+}
+
+.book-card:hover {
+    transform: translateY(-7px);
+    box-shadow: 5px 10px 15px #467a9a55;
+}
+
+/* BOOK COVERS */
+
+.cover {
+    height: 185px;
+    width: 125px;
+    margin: 0 auto 13px;
+    border: 4px solid white;
+    box-shadow: 3px 4px 9px #365d7a55;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding: 14px 8px;
+    color: white;
+    position: relative;
+    overflow: hidden;
+}
+
+.cover::before {
+    content: "✧";
+    position: absolute;
+    font-size: 70px;
+    color: #ffffff24;
+    top: 55px;
+}
+
+.cover span,
+.cover strong,
+.cover small {
+    position: relative;
+    z-index: 1;
+}
+
+.cover span {
+    font: 15px 'VT323',monospace;
+}
+
+.cover strong {
+    font: 19px 'Playfair Display',serif;
+    font-weight: 400;
+}
+
+.cover small {
+    font-size: 8px;
+    letter-spacing: 2px;
+}
+
+/* COVER COLOURS */
+
+.c1 {background: linear-gradient(145deg,#91c9e3,#193d68);}
+.c2 {background: linear-gradient(145deg,#647e9c,#182d49);}
+.c3 {background: linear-gradient(145deg,#b8ddeb,#527b9b);}
+.c4 {background: linear-gradient(145deg,#879fbc,#293d60);}
+.c5 {background: linear-gradient(145deg,#4676a4,#102b4c);}
+.c6 {background: linear-gradient(145deg,#a9c9dc,#426b8e);}
+.c7 {background: linear-gradient(145deg,#5a7293,#172d50);}
+.c8 {background: linear-gradient(145deg,#42648f,#142440);}
+.c9 {background: linear-gradient(145deg,#9db7cf,#354d6b);}
+.c10 {background: linear-gradient(145deg,#c1dcea,#47799b);}
+.c11 {background: linear-gradient(145deg,#34577e,#101c36);}
+
+.c12 {background: linear-gradient(145deg,#a6d6e9,#315e85);}
+.c13 {background: linear-gradient(145deg,#7ca9cb,#182f50);}
+.c14 {background: linear-gradient(145deg,#c0d8e9,#253d65);}
+
+.book-card h3 {
+    font: 19px 'Playfair Display',serif;
+    color: #315c7e;
+    margin-bottom: 5px;
+}
+
+.book-card p {
+    font-size: 10px;
+    color: #8199ac;
+    line-height: 1.7;
+}
+
+.tag {
+    display: inline-block;
+    background: #d9f1ff;
+    border: 1px solid #a5d3e9;
+    padding: 5px 8px;
+    font-size: 9px;
+    margin-top: 10px;
+    color: #38698e;
+}
+
+/* SERIES DIVIDER */
+
+.series-divider {
+    text-align: center;
+    padding: 15px;
+    color: #619fc4;
+    font-size: 20px;
+    letter-spacing: 8px;
+}
+
+/* NO RESULTS */
+
+.no-results {
+    display: none;
+    text-align: center;
+    padding: 30px;
+    color: #6386a2;
+    font: 22px 'Playfair Display',serif;
+}
+
+/* POPUP */
+
+.modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: #071629cc;
+    z-index: 10;
+    justify-content: center;
+    align-items: center;
+    padding: 15px;
+}
+
+.modal-content {
+    width: min(420px,100%);
+    background: #f3faff;
+    border: 3px solid #85c6e9;
+    box-shadow: 0 0 30px #75cfff77;
+    padding: 30px;
+    text-align: center;
+    position: relative;
+    animation: appear .25s ease;
+}
+
+@keyframes appear {
+    from {
+        opacity: 0;
+        transform: scale(.9);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.modal-content h2 {
+    font: italic 30px 'Playfair Display',serif;
+    color: #315d83;
+    margin: 15px;
+}
+
+.modal-content p {
+    font-size: 12px;
+    line-height: 2;
+    color: #59768d;
+}
+
+.close {
+    position: absolute;
+    right: 12px;
+    top: 8px;
+    border: none;
+    background: none;
+    color: #315d83;
+    font-size: 23px;
+    cursor: pointer;
+}
+
+/* FOOTER */
+
+footer {
+    background: #173957;
+    color: #d5edff;
+    text-align: center;
+    padding: 22px;
+    font: 20px 'VT323',monospace;
+    letter-spacing: 2px;
+    border-top: 3px solid white;
+}
+
+footer span {
+    color: #82dfff;
+}
+
+/* MOBILE */
+
+@media(max-width:750px) {
+    .books {
+        grid-template-columns: repeat(2,1fr);
+    }
+}
+
+@media(max-width:420px) {
+    .books {
+        gap: 10px;
+    }
+
+    .cover {
+        width: 100px;
+        height: 155px;
+    }
+
+    .book-card h3 {
+        font-size: 16px;
+    }
+
+    header h1 {
+        font-size: 35px;
+    }
+
+    .collection {
+        padding: 10px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="website">
+
+<!-- HEADER -->
+
+<header>
+    <div class="decor">꩜</div>
+    <h1>For Saden &lt;3</h1>
+    <p>THE LITTLE BOOK UNIVERSE ✧</p>
+</header>
+
+<!-- NAVIGATION -->
+
+<nav>
+    <a href="index.html">HOME</a>
+    <a href="bookshelf.html">BOOKSHELF</a>
+    <a href="collection.html">COLLECTION</a>
+</nav>
+
+<!-- INTRO -->
+
+<section class="intro">
+    <div class="tiny">✧ WELCOME TO THE ARCHIVE ✧</div>
+
+    <h2>The Book Collection</h2>
+
+    <p>
+        Every story has a place here.
+        <br>
+        Explore the worlds of Shatter Me and The New Republic.
+    </p>
+</section>
+
+<!-- SEARCH -->
+
+<div class="search-area">
+    <input
+        type="text"
+        id="search"
+        placeholder="⌕ Search for a book..."
+        oninput="filterBooks()">
+</div>
+
+<!-- FILTER BUTTONS -->
+
+<div class="filters">
+
+    <button class="active"
+    onclick="setFilter('all',this)">
+        ALL BOOKS
+    </button>
+
+    <button onclick="setFilter('main',this)">
+        MAIN NOVELS
+    </button>
+
+    <button onclick="setFilter('novella',this)">
+        NOVELLAS
+    </button>
+
+    <button onclick="setFilter('new',this)">
+        NEW REPUBLIC
+    </button>
+
+</div>
+
+<!-- ORIGINAL SHATTER ME SERIES -->
+
+<section class="collection">
+
+    <h2 class="series-heading">
+        The Shatter Me Series
+    </h2>
+
+    <p class="series-subtitle">
+        SERIES I · THE ORIGINAL COLLECTION
+    </p>
+
+    <div class="books">
+
+        <div class="book-card" data-type="main" onclick="showBook(0)">
+            <div class="cover c1">
+                <span>01</span>
+                <strong>Shatter<br>Me</strong>
+                <small>TAHEREH MAFI</small>
+            </div>
+            <h3>Shatter Me</h3>
+            <p>2011 · Book 01</p>
+            <span class="tag">MAIN NOVEL</span>
+        </div>
+
+        <div class="book-card" data-type="novella" onclick="showBook(1)">
+            <div class="cover c2">
+                <span>01.5</span>
+                <strong>Destroy<br>Me</strong>
+                <small>TAHEREH MAFI</small>
+            </div>
+            <h3>Destroy Me</h3>
+            <p>2012 · Book 01.5</p>
+            <span class="tag">NOVELLA</span>
+        </div>
+
+        <div class="book-card" data-type="main" onclick="showBook(2)">
+            <div class="cover c3">
+                <span>02</span>
+                <strong>Unravel<br>Me</strong>
+                <small>TAHEREH MAFI</small>
+            </div>
+            <h3>Unravel Me</h3>
+            <p>2013 · Book 02</p>
+            <span class="tag">MAIN NOVEL</span>
+        </div>
+
+        <div class="book-card" data-type="novella" onclick="showBook(3)">
+            <div class="cover c4">
+                <span>02.5</span>
+                <strong>Fracture<br>Me</strong>
+                <small>TAHEREH MAFI</small>
+            </div>
+            <h3>Fracture Me</h3>
+            <p>2013 · Book 02.5</p>
+            <span class="tag">NOVELLA</span>
+        </div>
+
+        <div class="book-card" data-type="main" onclick="showBook(4)">
+            <div class="cover c5">
+                <span>03</span>
+                <strong>Ignite<br>Me</strong>
+                <small>TAHEREH MAFI</small>
+            </div>
+            <h3>Ignite Me</h3>
+            <p>2014 · Book 03</p>
+            <span class="tag">MAIN NOVEL</span>
+        </div>
+
+        <div class="book-card" data-type="main" onclick="showBook(5)">
+            <div class="cover c6">
+                <span>04</span>
+                <strong>Restore<br>Me</strong>
+                <small>TAHEREH MAFI</small>
+            </div>
+            <h3>Restore Me</h3>
+            <p>2018 · Book 04</p>
+            <span class="tag">MAIN NOVEL</span>
+        </div>
+
+        <div class="book-card" data-type="novella" onclick="showBook(6)">
+            <div class="cover c7">
+                <span>04.5</span>
+                <strong>Shadow<br>Me</strong>
+                <small>TAHEREH MAFI</small>
+            </div>
+            <h3>Shadow Me</h3>
+            <p>2019 · Book 04.5</p>
+            <span class="tag">NOVELLA</span>
+        </div>
+
+        <div class="book-card" data-type="main" onclick="showBook(7)">
+            <div class="cover c8">
+                <span>05</span>
+                <strong>Defy<br>Me</strong>
+                <small>TAHEREH MAFI</small>
+            </div>
+            <h3>Defy Me</h3>
+            <p>2019 · Book 05</p>
+            <span class="tag">MAIN NOVEL</span>
+        </div>
+
+        <div class="book-card" data-type="novella" onclick="showBook(8)">
+            <div class="cover c9">
+                <span>05.5</span>
+                <strong>Reveal<br>Me</strong>
+                <small>TAHEREH MAFI</small>
+            </div>
+            <h3>Reveal Me</h3>
+            <p>2019 · Book 05.5</p>
+            <span class="tag">NOVELLA</span>
+        </div>
+
+        <div class="book-card" data-type="main" onclick="showBook(9)">
+            <div class="cover c10">
+                <span>06</span>
+                <strong>Imagine<br>Me</strong>
+                <small>TAHEREH MAFI</small>
+            </div>
+            <h3>Imagine Me</h3>
+            <p>2020 · Book 06</p>
+            <span class="tag">MAIN NOVEL</span>
+        </div>
+
+        <div class="book-card" data-type="novella" onclick="showBook(10)">
+            <div class="cover c11">
+                <span>06.5</span>
+                <strong>Believe<br>Me</strong>
+                <small>TAHEREH MAFI</small>
+            </div>
+            <h3>Believe Me</h3>
+            <p>2021 · Book 06.5</p>
+            <span class="tag">NOVELLA</span>
+        </div>
+
+    </div>
+
+</section>
+
+<div class="series-divider">
+    ✧ ｡ﾟ☆: *.☽ .* :☆ﾟ. ✧
+</div>
+
+<!-- THE NEW REPUBLIC -->
+
+<section class="collection">
+
+    <h2 class="series-heading">
+        The New Republic
+    </h2>
+
+    <p class="series-subtitle">
+        SERIES II · A NEW CHAPTER
+    </p>
+
+    <div class="books">
+
+        <div class="book-card" data-type="new" onclick="showBook(11)">
+            <div class="cover c12">
+                <span>01</span>
+                <strong>Watch<br>Me</strong>
+                <small>TAHEREH MAFI</small>
+            </div>
+            <h3>Watch Me</h3>
+            <p>2025 · Book 01</p>
+            <span class="tag">NEW REPUBLIC</span>
+        </div>
+
+        <div class="book-card" data-type="new" onclick="showBook(12)">
+            <div class="cover c13">
+                <span>02</span>
+                <strong>Release<br>Me</strong>
+                <small>TAHEREH MAFI</small>
+            </div>
+            <h3>Release Me</h3>
+            <p>2026 · Book 02</p>
+            <span class="tag">NEW REPUBLIC</span>
+        </div>
+
+        <div class="book-card" data-type="new" onclick="showBook(13)">
+            <div class="cover c14">
+                <span>03</span>
+                <strong>Escape<br>Me</strong>
+                <small>TAHEREH MAFI</small>
+            </div>
+            <h3>Escape Me</h3>
+            <p>2026 · Book 03</p>
+            <span class="tag">NEW REPUBLIC</span>
+        </div>
+
+    </div>
+
+</section>
+
+<div class="no-results" id="noResults">
+    ✧ No books found... try another search! ✧
+</div>
+
+<!-- FOOTER -->
+
+<footer>
+    ✧ FOR SADEN &lt;3 ✧
+    <br>
+    <span>EVERY BOOK HAS ITS OWN UNIVERSE.</span>
+</footer>
+
+</div>
+
+<!-- BOOK POPUP -->
+
+<div class="modal" id="modal" onclick="closeOutside(event)">
+
+    <div class="modal-content">
+
+        <button class="close" onclick="closeModal()">×</button>
+
+        <div class="tiny">✧ FROM THE ARCHIVE ✧</div>
+
+        <h2 id="modalTitle"></h2>
+
+        <p id="modalDescription"></p>
+
+        <br>
+
+        <span class="tag" id="modalType"></span>
+
+        <p style="margin-top:15px; font-size:10px;">
+            A LITTLE PIECE OF THE BOOK UNIVERSE ♡
+        </p>
+
+    </div>
+
+</div>
+
+<script>
+
+/* BOOK INFORMATION */
+
+const books = [
+
+{
+    title: "Shatter Me",
+    type: "Main Novel",
+    description: "Meet Juliette Ferrars, a girl whose touch is dangerous. In a world that fears her, she begins discovering her identity and the power she holds."
+},
+
+{
+    title: "Destroy Me",
+    type: "Novella",
+    description: "A companion story told from Warner's perspective, giving readers a closer look into his thoughts and motivations."
+},
+
+{
+    title: "Unravel Me",
+    type: "Main Novel",
+    description: "Juliette faces new challenges as she learns more about her abilities, the resistance and the world around her."
+},
+
+{
+    title: "Fracture Me",
+    type: "Novella",
+    description: "A companion story told from Adam's perspective during the events surrounding Unravel Me."
+},
+
+{
+    title: "Ignite Me",
+    type: "Main Novel",
+    description: "Juliette must decide who she wants to become and what she is willing to fight for."
+},
+
+{
+    title: "Restore Me",
+    type: "Main Novel",
+    description: "A new chapter begins as Juliette discovers that power and leadership are more complicated than she imagined."
+},
+
+{
+    title: "Shadow Me",
+    type: "Novella",
+    description: "A companion story exploring Kenji's perspective and the events surrounding the fourth novel."
+},
+
+{
+    title: "Defy Me",
+    type: "Main Novel",
+    description: "Secrets from the past begin to surface, challenging everything Juliette thought she knew."
+},
+
+{
+    title: "Reveal Me",
+    type: "Novella",
+    description: "A companion story that continues the journey through the world of the Shatter Me series."
+},
+
+{
+    title: "Imagine Me",
+    type: "Main Novel",
+    description: "The sixth main novel brings Juliette's journey into a new and important chapter."
+},
+
+{
+    title: "Believe Me",
+    type: "Novella",
+    description: "A final companion story offering another perspective on the characters after the main series."
+},
+
+{
+    title: "Watch Me",
+    type: "New Republic",
+    description: "Ten years after the fall of the Reestablishment, James Anderson infiltrates Ark Island, where he encounters Rosabelle Wolff, an assassin with a dangerous mission."
+},
+
+{
+    title: "Release Me",
+    type: "New Republic",
+    description: "Rosabelle wants revenge and James has a plan of his own. Their paths collide again as the danger surrounding Ark Island grows."
+},
+
+{
+    title: "Escape Me",
+    type: "New Republic",
+    description: "The third novel in The New Republic series, continuing James and Rosabelle's story in the Shatter Me universe."
+}
+
+];
+
+
+/* FILTERING */
+
+let currentFilter = "all";
+
+function setFilter(type, button) {
+
+    currentFilter = type;
+
+    document.querySelectorAll(".filters button")
+        .forEach(b => b.classList.remove("active"));
+
+    button.classList.add("active");
+
+    filterBooks();
+}
+
+
+function filterBooks() {
+
+    const search = document
+        .getElementById("search")
+        .value.toLowerCase();
+
+    let visibleCount = 0;
+
+    document.querySelectorAll(".book-card").forEach(card => {
+
+        const name = card.querySelector("h3")
+            .textContent.toLowerCase();
+
+        const type = card.dataset.type;
+
+        const matchesSearch = name.includes(search);
+
+        const matchesFilter =
+            currentFilter === "all" ||
+            type === currentFilter;
+
+        const visible = matchesSearch && matchesFilter;
+
+        card.style.display = visible ? "" : "none";
+
+        if (visible) visibleCount++;
+
+    });
+
+    document.getElementById("noResults").style.display =
+        visibleCount === 0 ? "block" : "none";
+
+    /* Hide empty series sections */
+
+    document.querySelectorAll(".collection").forEach(section => {
+
+        const cards = section.querySelectorAll(".book-card");
+
+        const hasVisible = Array.from(cards).some(
+            card => card.style.display !== "none"
+        );
+
+        section.style.display = hasVisible ? "" : "none";
+
+    });
+
+}
+
+
+/* BOOK POPUPS */
+
+function showBook(index) {
+
+    const book = books[index];
+
+    document.getElementById("modalTitle").textContent =
+        book.title;
+
+    document.getElementById("modalDescription").textContent =
+        book.description;
+
+    document.getElementById("modalType").textContent =
+        book.type;
+
+    document.getElementById("modal").style.display = "flex";
+
+}
+
+
+function closeModal() {
+
+    document.getElementById("modal").style.display = "none";
+
+}
+
+
+function closeOutside(event) {
+
+    if (event.target.id === "modal") {
+        closeModal();
+    }
+
+}
+
+
+/* CLOSE POPUP WITH ESCAPE */
+
+document.addEventListener("keydown", function(event) {
+
+    if (event.key === "Escape") {
+        closeModal();
+    }
+
+});
+
+</script>
+
+</body>
+</html>
