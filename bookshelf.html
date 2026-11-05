@@ -1,0 +1,460 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Saden's Bookshelf ♡</title>
+
+<link href="https://fonts.googleapis.com/css2?family=VT323&family=Quicksand:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: #101b35 url("spiral-bg.png") center/cover fixed;
+    color: #294968;
+    font-family: 'Quicksand', sans-serif;
+    padding: 25px 15px;
+}
+
+.site {
+    max-width: 1100px;
+    margin: auto;
+    background: #d9efff;
+    border: 2px solid #a6e5ff;
+    box-shadow: 0 0 30px #78d9ff66;
+}
+
+/* HEADER */
+
+header {
+    padding: 35px 20px;
+    text-align: center;
+    background: linear-gradient(120deg,#173253,#438fbd,#b1e6f9);
+    color: white;
+    border-bottom: 3px solid white;
+    position: relative;
+    overflow: hidden;
+}
+
+header h1 {
+    font: italic 48px 'Playfair Display',serif;
+    text-shadow: 2px 3px #1b466c;
+}
+
+header p {
+    font: 19px 'VT323',monospace;
+    letter-spacing: 3px;
+    margin-top: 10px;
+}
+
+header .decoration {
+    position: absolute;
+    right: 35px;
+    top: -35px;
+    font-size: 140px;
+    color: #ffffff55;
+}
+
+/* NAVIGATION */
+
+nav {
+    background: #aee4fa;
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    flex-wrap: wrap;
+    padding: 14px;
+    border-bottom: 2px solid white;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    font: 18px 'VT323',monospace;
+    padding: 9px 20px;
+    border-radius: 6px;
+    background: linear-gradient(#83d5f4,#368dc2);
+    border: 2px solid white;
+    outline: 1px solid #478bb7;
+}
+
+nav a:hover {
+    background: #183d68;
+}
+
+/* INTRO */
+
+.intro {
+    text-align: center;
+    padding: 45px 20px 30px;
+}
+
+.intro .tiny {
+    font-size: 11px;
+    letter-spacing: 4px;
+    color: #5899c3;
+}
+
+.intro h2 {
+    font: italic 38px 'Playfair Display',serif;
+    color: #244d73;
+    margin: 12px;
+}
+
+.intro p {
+    font-size: 12px;
+    line-height: 2;
+    color: #58738b;
+}
+
+/* SHELF */
+
+.shelf-area {
+    padding: 20px 25px 55px;
+}
+
+.shelf-heading {
+    font: 25px 'Playfair Display',serif;
+    color: #244d73;
+    margin: 15px 0;
+    text-align: center;
+}
+
+.shelf {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: end;
+    gap: 13px;
+    padding: 30px 20px 0;
+    background: linear-gradient(#d7f0ff,#b5dff3);
+    border: 2px solid white;
+    border-radius: 8px 8px 0 0;
+}
+
+.book {
+    width: 125px;
+    height: 215px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 15px 10px;
+    text-align: center;
+    color: white;
+    border: 3px solid #ffffffaa;
+    border-radius: 3px 7px 3px 3px;
+    box-shadow: 4px 5px 7px #24496a55;
+    transition: .3s;
+    cursor: pointer;
+    overflow: hidden;
+}
+
+.book:hover {
+    transform: translateY(-12px) rotate(-2deg);
+    box-shadow: 6px 12px 15px #24496a66;
+}
+
+.book::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 8px;
+    width: 5px;
+    background: #ffffff55;
+}
+
+.book .number {
+    font: 16px 'VT323',monospace;
+    position: relative;
+}
+
+.book .title {
+    font: 18px 'Playfair Display',serif;
+    position: relative;
+    line-height: 1.3;
+}
+
+.book .type {
+    font-size: 9px;
+    letter-spacing: 1px;
+    position: relative;
+}
+
+.book .star {
+    font-size: 20px;
+    position: relative;
+}
+
+/* BOOK COLOURS */
+
+.b1 {background: linear-gradient(150deg,#8dbbd8,#294b70);}
+.b2 {background: linear-gradient(150deg,#647c9e,#1b2948);}
+.b3 {background: linear-gradient(150deg,#b3d7eb,#527a9d);}
+.b4 {background: linear-gradient(150deg,#839bb8,#344c70);}
+.b5 {background: linear-gradient(150deg,#426d9c,#182e51);}
+.b6 {background: linear-gradient(150deg,#a4c4d9,#426b91);}
+.b7 {background: linear-gradient(150deg,#536d8e,#182e50);}
+.b8 {background: linear-gradient(150deg,#3e6593,#142747);}
+.b9 {background: linear-gradient(150deg,#8ba9c5,#344a68);}
+.b10 {background: linear-gradient(150deg,#accfe4,#3b6385);}
+.b11 {background: linear-gradient(150deg,#263f68,#101b35);}
+
+.shelf-board {
+    height: 16px;
+    background: linear-gradient(#d2eafa,#6599bc);
+    border: 2px solid white;
+    box-shadow: 0 7px 8px #183a5a55;
+    margin-bottom: 35px;
+}
+
+/* READING INFO */
+
+.info {
+    margin: 25px;
+    background: #f5fbff;
+    border: 2px solid #91cce9;
+    box-shadow: 4px 4px #9ccde5;
+}
+
+.info-title {
+    background: linear-gradient(90deg,#24547f,#70c4e8);
+    color: white;
+    padding: 10px;
+    font: 20px 'VT323',monospace;
+}
+
+.info-content {
+    padding: 20px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.info-content h3 {
+    font: 23px 'Playfair Display',serif;
+    color: #315f85;
+    margin-bottom: 10px;
+}
+
+.info-content p {
+    font-size: 12px;
+    line-height: 2;
+    color: #648099;
+}
+
+.label {
+    display: inline-block;
+    background: #d8f1ff;
+    padding: 5px 9px;
+    border: 1px solid #9ccfe8;
+    border-radius: 4px;
+    font-size: 10px;
+    margin: 3px;
+}
+
+/* FOOTER */
+
+footer {
+    text-align: center;
+    padding: 22px;
+    background: #173957;
+    color: #d5edff;
+    font: 20px 'VT323',monospace;
+    letter-spacing: 2px;
+    border-top: 3px solid white;
+}
+
+@media(max-width:600px) {
+    header h1 {font-size: 35px;}
+
+    .book {
+        width: 105px;
+        height: 185px;
+    }
+
+    .book .title {font-size: 15px;}
+
+    .info-content {
+        grid-template-columns: 1fr;
+    }
+
+    .shelf-area {padding: 15px 10px;}
+}
+</style>
+</head>
+
+<body>
+
+<div class="site">
+
+<header>
+    <div class="decoration">꩜</div>
+    <h1>For Saden &lt;3</h1>
+    <p>THE LITTLE BOOK COLLECTION ✧</p>
+</header>
+
+<nav>
+    <a href="index.html">HOME</a>
+    <a href="bookshelf.html">BOOKSHELF</a>
+    <a href="#collection">COLLECTION</a>
+    <a href="#notes">BOOK NOTES</a>
+</nav>
+
+<section class="intro">
+    <div class="tiny">✧ WELCOME TO THE LIBRARY ✧</div>
+
+    <h2>The Shatter Me Collection</h2>
+
+    <p>
+    Eleven stories. One unforgettable universe.
+    <br>
+    A little collection dedicated to Tahereh Mafi's world.
+    </p>
+</section>
+
+<section class="shelf-area" id="collection">
+
+    <h2 class="shelf-heading">
+        ── ✧ the bookshelf ✧ ──
+    </h2>
+
+    <div class="shelf">
+
+        <div class="book b1" title="Shatter Me">
+            <span class="number">01</span>
+            <span class="star">✧</span>
+            <span class="title">Shatter Me</span>
+            <span class="type">MAIN NOVEL</span>
+        </div>
+
+        <div class="book b2" title="Destroy Me">
+            <span class="number">01.5</span>
+            <span class="star">☆</span>
+            <span class="title">Destroy Me</span>
+            <span class="type">NOVELLA</span>
+        </div>
+
+        <div class="book b3" title="Unravel Me">
+            <span class="number">02</span>
+            <span class="star">✧</span>
+            <span class="title">Unravel Me</span>
+            <span class="type">MAIN NOVEL</span>
+        </div>
+
+        <div class="book b4" title="Fracture Me">
+            <span class="number">02.5</span>
+            <span class="star">☆</span>
+            <span class="title">Fracture Me</span>
+            <span class="type">NOVELLA</span>
+        </div>
+
+        <div class="book b5" title="Ignite Me">
+            <span class="number">03</span>
+            <span class="star">✧</span>
+            <span class="title">Ignite Me</span>
+            <span class="type">MAIN NOVEL</span>
+        </div>
+
+        <div class="book b6" title="Restore Me">
+            <span class="number">04</span>
+            <span class="star">✧</span>
+            <span class="title">Restore Me</span>
+            <span class="type">MAIN NOVEL</span>
+        </div>
+
+        <div class="book b7" title="Shadow Me">
+            <span class="number">04.5</span>
+            <span class="star">☆</span>
+            <span class="title">Shadow Me</span>
+            <span class="type">NOVELLA</span>
+        </div>
+
+        <div class="book b8" title="Defy Me">
+            <span class="number">05</span>
+            <span class="star">✧</span>
+            <span class="title">Defy Me</span>
+            <span class="type">MAIN NOVEL</span>
+        </div>
+
+        <div class="book b9" title="Reveal Me">
+            <span class="number">05.5</span>
+            <span class="star">☆</span>
+            <span class="title">Reveal Me</span>
+            <span class="type">NOVELLA</span>
+        </div>
+
+        <div class="book b10" title="Imagine Me">
+            <span class="number">06</span>
+            <span class="star">✧</span>
+            <span class="title">Imagine Me</span>
+            <span class="type">MAIN NOVEL</span>
+        </div>
+
+        <div class="book b11" title="Believe Me">
+            <span class="number">06.5</span>
+            <span class="star">☆</span>
+            <span class="title">Believe Me</span>
+            <span class="type">NOVELLA</span>
+        </div>
+
+    </div>
+
+    <div class="shelf-board"></div>
+
+</section>
+
+<section class="info" id="notes">
+
+    <div class="info-title">
+        ✧ LIBRARY INFORMATION.EXE
+    </div>
+
+    <div class="info-content">
+
+        <div>
+            <h3>The collection</h3>
+            <p>
+            Author: Tahereh Mafi
+            <br>
+            Main novels: 6
+            <br>
+            Companion novellas: 5
+            <br>
+            Total entries: 11
+            </p>
+        </div>
+
+        <div>
+            <h3>Reading guide</h3>
+            <p>
+            Read the books in the order displayed
+            on the shelf! The novellas fit between
+            the main novels and add extra perspectives.
+            </p>
+
+            <span class="label">DYSTOPIAN</span>
+            <span class="label">FANTASY</span>
+            <span class="label">ROMANCE</span>
+        </div>
+
+    </div>
+</section>
+
+<footer>
+    ✧ THANK YOU FOR VISITING SADEN'S LIBRARY ✧
+    <br>
+    <span>made with love &lt;3</span>
+</footer>
+
+</div>
+
+</body>
+</html>
