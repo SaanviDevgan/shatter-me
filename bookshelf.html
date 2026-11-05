@@ -1,18 +1,24 @@
-
+=
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Saden's Bookshelf ♡</title>
 
 <link href="https://fonts.googleapis.com/css2?family=VT323&family=Quicksand:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
 
 <style>
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
 }
 
 body {
@@ -45,12 +51,16 @@ header {
 header h1 {
     font: italic 48px 'Playfair Display',serif;
     text-shadow: 2px 3px #1b466c;
+    position: relative;
+    z-index: 2;
 }
 
 header p {
     font: 19px 'VT323',monospace;
     letter-spacing: 3px;
     margin-top: 10px;
+    position: relative;
+    z-index: 2;
 }
 
 header .decoration {
@@ -59,6 +69,11 @@ header .decoration {
     top: -35px;
     font-size: 140px;
     color: #ffffff55;
+    animation: spin 25s linear infinite;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
 }
 
 /* NAVIGATION */
@@ -82,10 +97,12 @@ nav a {
     background: linear-gradient(#83d5f4,#368dc2);
     border: 2px solid white;
     outline: 1px solid #478bb7;
+    transition: .2s;
 }
 
 nav a:hover {
     background: #183d68;
+    transform: translateY(-3px);
 }
 
 /* INTRO */
@@ -113,18 +130,46 @@ nav a:hover {
     color: #58738b;
 }
 
-/* SHELF */
+/* COLLECTION INFO */
+
+.collection-info {
+    text-align: center;
+    padding: 10px 15px 25px;
+}
+
+.collection-info span {
+    display: inline-block;
+    background: #effaff;
+    color: #44799d;
+    border: 1px solid #a6d8ef;
+    padding: 7px 13px;
+    margin: 4px;
+    font-size: 10px;
+    letter-spacing: 1px;
+}
+
+/* SHELF AREA */
 
 .shelf-area {
-    padding: 20px 25px 55px;
+    padding: 20px 25px 40px;
 }
 
 .shelf-heading {
-    font: 25px 'Playfair Display',serif;
+    font: italic 27px 'Playfair Display',serif;
     color: #244d73;
     margin: 15px 0;
     text-align: center;
 }
+
+.shelf-subtitle {
+    text-align: center;
+    font-size: 10px;
+    color: #7796ad;
+    letter-spacing: 3px;
+    margin-bottom: 25px;
+}
+
+/* SHELF */
 
 .shelf {
     display: flex;
@@ -193,7 +238,7 @@ nav a:hover {
     position: relative;
 }
 
-/* BOOK COLOURS */
+/* ORIGINAL SERIES COLOURS */
 
 .b1 {background: linear-gradient(150deg,#8dbbd8,#294b70);}
 .b2 {background: linear-gradient(150deg,#647c9e,#1b2948);}
@@ -207,12 +252,30 @@ nav a:hover {
 .b10 {background: linear-gradient(150deg,#accfe4,#3b6385);}
 .b11 {background: linear-gradient(150deg,#263f68,#101b35);}
 
+/* NEW REPUBLIC COLOURS */
+
+.b12 {background: linear-gradient(150deg,#a6d6e9,#315e85);}
+.b13 {background: linear-gradient(150deg,#7ca9cb,#182f50);}
+.b14 {background: linear-gradient(150deg,#c0d8e9,#253d65);}
+
+/* SHELF BOARD */
+
 .shelf-board {
     height: 16px;
     background: linear-gradient(#d2eafa,#6599bc);
     border: 2px solid white;
     box-shadow: 0 7px 8px #183a5a55;
     margin-bottom: 35px;
+}
+
+/* SECTION DIVIDER */
+
+.divider {
+    text-align: center;
+    color: #619fc4;
+    letter-spacing: 8px;
+    font-size: 20px;
+    padding: 10px;
 }
 
 /* READING INFO */
@@ -260,6 +323,64 @@ nav a:hover {
     margin: 3px;
 }
 
+/* BOOK POPUP */
+
+.modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 10;
+    background: #071629cc;
+    justify-content: center;
+    align-items: center;
+    padding: 15px;
+}
+
+.modal-content {
+    position: relative;
+    width: min(420px,100%);
+    background: #f5fbff;
+    border: 3px solid #91cce9;
+    box-shadow: 0 0 25px #78d9ff77;
+    padding: 30px;
+    text-align: center;
+    animation: appear .25s ease;
+}
+
+@keyframes appear {
+    from {
+        opacity: 0;
+        transform: scale(.9);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.modal-content h2 {
+    font: italic 30px 'Playfair Display',serif;
+    color: #315f85;
+    margin: 15px 0;
+}
+
+.modal-content p {
+    font-size: 12px;
+    line-height: 2;
+    color: #648099;
+}
+
+.close {
+    position: absolute;
+    top: 8px;
+    right: 13px;
+    border: none;
+    background: none;
+    color: #315f85;
+    font-size: 25px;
+    cursor: pointer;
+}
+
 /* FOOTER */
 
 footer {
@@ -272,22 +393,62 @@ footer {
     border-top: 3px solid white;
 }
 
-@media(max-width:600px) {
-    header h1 {font-size: 35px;}
+footer span {
+    color: #82dfff;
+}
+
+/* MOBILE */
+
+@media(max-width:700px) {
 
     .book {
         width: 105px;
         height: 185px;
     }
 
-    .book .title {font-size: 15px;}
+    .book .title {
+        font-size: 15px;
+    }
+
+    .shelf-area {
+        padding: 15px 10px;
+    }
+
+}
+
+@media(max-width:480px) {
+
+    body {
+        padding: 10px 5px;
+    }
+
+    header h1 {
+        font-size: 35px;
+    }
+
+    header .decoration {
+        right: -20px;
+    }
+
+    nav {
+        gap: 8px;
+    }
+
+    nav a {
+        padding: 8px 12px;
+        font-size: 16px;
+    }
+
+    .info {
+        margin: 12px;
+    }
 
     .info-content {
         grid-template-columns: 1fr;
     }
 
-    .shelf-area {padding: 15px 10px;}
 }
+
 </style>
 </head>
 
@@ -295,110 +456,155 @@ footer {
 
 <div class="site">
 
+<!-- HEADER -->
+
 <header>
     <div class="decoration">꩜</div>
+
     <h1>For Saden &lt;3</h1>
+
     <p>THE LITTLE BOOK COLLECTION ✧</p>
 </header>
+
+
+<!-- NAVIGATION -->
 
 <nav>
     <a href="index.html">HOME</a>
     <a href="bookshelf.html">BOOKSHELF</a>
-    <a href="#collection">COLLECTION</a>
-    <a href="#notes">BOOK NOTES</a>
+    <a href="collection.html">COLLECTION</a>
+    <a href="index.html#featured">FEATURED</a>
+    <a href="index.html#reviews">REVIEWS</a>
+    <a href="index.html#about">ABOUT</a>
 </nav>
 
-<section class="intro">
-    <div class="tiny">✧ WELCOME TO THE LIBRARY ✧</div>
 
-    <h2>The Shatter Me Collection</h2>
+<!-- INTRO -->
+
+<section class="intro">
+
+    <div class="tiny">
+        ✧ WELCOME TO THE LIBRARY ✧
+    </div>
+
+    <h2>The Shatter Me Universe</h2>
 
     <p>
-    Eleven stories. One unforgettable universe.
-    <br>
-    A little collection dedicated to Tahereh Mafi's world.
+        Fourteen stories. Two series. One unforgettable universe.
+        <br>
+        A little collection dedicated to Tahereh Mafi's world.
     </p>
+
 </section>
+
+
+<!-- COLLECTION COUNTS -->
+
+<div class="collection-info">
+
+    <span>✧ 11 ORIGINAL ENTRIES</span>
+    <span>✧ 3 NEW REPUBLIC NOVELS</span>
+    <span>✧ 14 TOTAL BOOKS</span>
+
+</div>
+
+
+<!-- ORIGINAL SHATTER ME SERIES -->
 
 <section class="shelf-area" id="collection">
 
     <h2 class="shelf-heading">
-        ── ✧ the bookshelf ✧ ──
+        ── ✧ The Shatter Me Series ✧ ──
     </h2>
+
+    <p class="shelf-subtitle">
+        SERIES I · THE ORIGINAL COLLECTION
+    </p>
 
     <div class="shelf">
 
-        <div class="book b1" title="Shatter Me">
+        <div class="book b1" tabindex="0" role="button"
+        onclick="showBook(0)" onkeydown="bookKey(event,0)">
             <span class="number">01</span>
             <span class="star">✧</span>
             <span class="title">Shatter Me</span>
             <span class="type">MAIN NOVEL</span>
         </div>
 
-        <div class="book b2" title="Destroy Me">
+        <div class="book b2" tabindex="0" role="button"
+        onclick="showBook(1)" onkeydown="bookKey(event,1)">
             <span class="number">01.5</span>
             <span class="star">☆</span>
             <span class="title">Destroy Me</span>
             <span class="type">NOVELLA</span>
         </div>
 
-        <div class="book b3" title="Unravel Me">
+        <div class="book b3" tabindex="0" role="button"
+        onclick="showBook(2)" onkeydown="bookKey(event,2)">
             <span class="number">02</span>
             <span class="star">✧</span>
             <span class="title">Unravel Me</span>
             <span class="type">MAIN NOVEL</span>
         </div>
 
-        <div class="book b4" title="Fracture Me">
+        <div class="book b4" tabindex="0" role="button"
+        onclick="showBook(3)" onkeydown="bookKey(event,3)">
             <span class="number">02.5</span>
             <span class="star">☆</span>
             <span class="title">Fracture Me</span>
             <span class="type">NOVELLA</span>
         </div>
 
-        <div class="book b5" title="Ignite Me">
+        <div class="book b5" tabindex="0" role="button"
+        onclick="showBook(4)" onkeydown="bookKey(event,4)">
             <span class="number">03</span>
             <span class="star">✧</span>
             <span class="title">Ignite Me</span>
             <span class="type">MAIN NOVEL</span>
         </div>
 
-        <div class="book b6" title="Restore Me">
+        <div class="book b6" tabindex="0" role="button"
+        onclick="showBook(5)" onkeydown="bookKey(event,5)">
             <span class="number">04</span>
             <span class="star">✧</span>
             <span class="title">Restore Me</span>
             <span class="type">MAIN NOVEL</span>
         </div>
 
-        <div class="book b7" title="Shadow Me">
+        <div class="book b7" tabindex="0" role="button"
+        onclick="showBook(6)" onkeydown="bookKey(event,6)">
             <span class="number">04.5</span>
             <span class="star">☆</span>
             <span class="title">Shadow Me</span>
             <span class="type">NOVELLA</span>
         </div>
 
-        <div class="book b8" title="Defy Me">
+        <div class="book b8" tabindex="0" role="button"
+        onclick="showBook(7)" onkeydown="bookKey(event,7)">
             <span class="number">05</span>
             <span class="star">✧</span>
             <span class="title">Defy Me</span>
             <span class="type">MAIN NOVEL</span>
         </div>
 
-        <div class="book b9" title="Reveal Me">
+        <div class="book b9" tabindex="0" role="button"
+        onclick="showBook(8)" onkeydown="bookKey(event,8)">
             <span class="number">05.5</span>
             <span class="star">☆</span>
             <span class="title">Reveal Me</span>
             <span class="type">NOVELLA</span>
         </div>
 
-        <div class="book b10" title="Imagine Me">
+        <div class="book b10" tabindex="0" role="button"
+        onclick="showBook(9)" onkeydown="bookKey(event,9)">
             <span class="number">06</span>
             <span class="star">✧</span>
             <span class="title">Imagine Me</span>
             <span class="type">MAIN NOVEL</span>
         </div>
 
-        <div class="book b11" title="Believe Me">
+        <div class="book b11" tabindex="0" role="button"
+        onclick="showBook(10)" onkeydown="bookKey(event,10)">
             <span class="number">06.5</span>
             <span class="star">☆</span>
             <span class="title">Believe Me</span>
@@ -411,7 +617,62 @@ footer {
 
 </section>
 
-<section class="info" id="notes">
+
+<!-- DIVIDER -->
+
+<div class="divider">
+    ✧ ｡ﾟ☆: *.☽ .* :☆ﾟ. ✧
+</div>
+
+
+<!-- NEW REPUBLIC -->
+
+<section class="shelf-area">
+
+    <h2 class="shelf-heading">
+        ── ✧ The New Republic ✧ ──
+    </h2>
+
+    <p class="shelf-subtitle">
+        SERIES II · A NEW CHAPTER
+    </p>
+
+    <div class="shelf">
+
+        <div class="book b12" tabindex="0" role="button"
+        onclick="showBook(11)" onkeydown="bookKey(event,11)">
+            <span class="number">01</span>
+            <span class="star">✧</span>
+            <span class="title">Watch Me</span>
+            <span class="type">MAIN NOVEL</span>
+        </div>
+
+        <div class="book b13" tabindex="0" role="button"
+        onclick="showBook(12)" onkeydown="bookKey(event,12)">
+            <span class="number">02</span>
+            <span class="star">✧</span>
+            <span class="title">Release Me</span>
+            <span class="type">MAIN NOVEL</span>
+        </div>
+
+        <div class="book b14" tabindex="0" role="button"
+        onclick="showBook(13)" onkeydown="bookKey(event,13)">
+            <span class="number">03</span>
+            <span class="star">✧</span>
+            <span class="title">Escape Me</span>
+            <span class="type">MAIN NOVEL</span>
+        </div>
+
+    </div>
+
+    <div class="shelf-board"></div>
+
+</section>
+
+
+<!-- LIBRARY INFORMATION -->
+
+<section class="info">
 
     <div class="info-title">
         ✧ LIBRARY INFORMATION.EXE
@@ -420,33 +681,46 @@ footer {
     <div class="info-content">
 
         <div>
+
             <h3>The collection</h3>
+
             <p>
-            Author: Tahereh Mafi
-            <br>
-            Main novels: 6
-            <br>
-            Companion novellas: 5
-            <br>
-            Total entries: 11
+                Author: Tahereh Mafi
+                <br>
+                Original main novels: 6
+                <br>
+                Original companion novellas: 5
+                <br>
+                New Republic novels: 3
+                <br>
+                Total entries: 14
             </p>
+
         </div>
 
         <div>
+
             <h3>Reading guide</h3>
+
             <p>
-            Read the books in the order displayed
-            on the shelf! The novellas fit between
-            the main novels and add extra perspectives.
+                The original series includes five companion
+                novellas. Read them in the order displayed
+                on the shelf for the intended reading sequence.
             </p>
 
             <span class="label">DYSTOPIAN</span>
             <span class="label">FANTASY</span>
             <span class="label">ROMANCE</span>
+            <span class="label">SCI-FI</span>
+
         </div>
 
     </div>
+
 </section>
+
+
+<!-- FOOTER -->
 
 <footer>
     ✧ THANK YOU FOR VISITING SADEN'S LIBRARY ✧
@@ -455,6 +729,185 @@ footer {
 </footer>
 
 </div>
+
+
+<!-- BOOK POPUP -->
+
+<div class="modal" id="modal" onclick="closeOutside(event)">
+
+    <div class="modal-content">
+
+        <button class="close" onclick="closeModal()">×</button>
+
+        <div class="label">✧ FROM THE BOOKSHELF ✧</div>
+
+        <h2 id="modalTitle"></h2>
+
+        <p id="modalDescription"></p>
+
+        <br>
+
+        <span class="label" id="modalType"></span>
+
+    </div>
+
+</div>
+
+
+<script>
+
+/* BOOK DETAILS */
+
+const books = [
+
+{
+    title: "Shatter Me",
+    type: "Main Novel · Book 01",
+    description: "Juliette Ferrars has a touch that can be deadly. In a world that fears her, she begins to discover her identity, her abilities and the power she holds."
+},
+
+{
+    title: "Destroy Me",
+    type: "Novella · Book 01.5",
+    description: "A companion story told from Warner's perspective, offering a closer look at his thoughts, motivations and complicated past."
+},
+
+{
+    title: "Unravel Me",
+    type: "Main Novel · Book 02",
+    description: "Juliette faces new challenges as she learns more about her abilities, the resistance and the world surrounding her."
+},
+
+{
+    title: "Fracture Me",
+    type: "Novella · Book 02.5",
+    description: "A companion story told from Adam's perspective during the events surrounding Unravel Me."
+},
+
+{
+    title: "Ignite Me",
+    type: "Main Novel · Book 03",
+    description: "Juliette must decide who she wants to become and what she is willing to fight for."
+},
+
+{
+    title: "Restore Me",
+    type: "Main Novel · Book 04",
+    description: "Juliette discovers that power and leadership are more complicated than she imagined as a new chapter begins."
+},
+
+{
+    title: "Shadow Me",
+    type: "Novella · Book 04.5",
+    description: "A companion story told from Kenji's perspective, exploring the events surrounding the fourth novel."
+},
+
+{
+    title: "Defy Me",
+    type: "Main Novel · Book 05",
+    description: "Secrets from the past begin to surface, challenging everything Juliette thought she knew."
+},
+
+{
+    title: "Reveal Me",
+    type: "Novella · Book 05.5",
+    description: "A companion story that continues the journey through the Shatter Me universe."
+},
+
+{
+    title: "Imagine Me",
+    type: "Main Novel · Book 06",
+    description: "The sixth main novel brings Juliette's journey into a new and important chapter."
+},
+
+{
+    title: "Believe Me",
+    type: "Novella · Book 06.5",
+    description: "A final companion story offering another perspective on the characters after the original main series."
+},
+
+{
+    title: "Watch Me",
+    type: "New Republic · Book 01",
+    description: "Ten years after the fall of the Reestablishment, James Anderson infiltrates Ark Island, where he encounters Rosabelle Wolff, an assassin with a dangerous mission."
+},
+
+{
+    title: "Release Me",
+    type: "New Republic · Book 02",
+    description: "Rosabelle and James face new complications as their paths collide and the danger surrounding Ark Island grows."
+},
+
+{
+    title: "Escape Me",
+    type: "New Republic · Book 03",
+    description: "The third novel in The New Republic series, continuing the story of James and Rosabelle."
+}
+
+];
+
+
+/* OPEN BOOK POPUP */
+
+function showBook(index) {
+
+    const book = books[index];
+
+    document.getElementById("modalTitle").textContent =
+        book.title;
+
+    document.getElementById("modalDescription").textContent =
+        book.description;
+
+    document.getElementById("modalType").textContent =
+        book.type;
+
+    document.getElementById("modal").style.display = "flex";
+
+}
+
+
+/* KEYBOARD ACCESS */
+
+function bookKey(event, index) {
+
+    if (event.key === "Enter" || event.key === " ") {
+        event.preventDefault();
+        showBook(index);
+    }
+
+}
+
+
+/* CLOSE POPUP */
+
+function closeModal() {
+
+    document.getElementById("modal").style.display = "none";
+
+}
+
+
+function closeOutside(event) {
+
+    if (event.target.id === "modal") {
+        closeModal();
+    }
+
+}
+
+
+/* ESCAPE KEY */
+
+document.addEventListener("keydown", function(event) {
+
+    if (event.key === "Escape") {
+        closeModal();
+    }
+
+});
+
+</script>
 
 </body>
 </html>
